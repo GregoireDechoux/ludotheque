@@ -13,6 +13,7 @@ require_once("classes/ModuleAjoutJeux.classe.php");
 require_once("classes/ModuleAjoutVersions.classe.php");
 require_once("classes/ModuleAjoutExemplaires.classe.php");
 require_once("classes/ModuleRecherche.classe.php");
+require_once("classes/ModuleInventaire.classe.php");
 
 // Constantes
 
@@ -121,6 +122,9 @@ class PageModule extends Page
 					// On créé l'objet chargé de faire des recherches. Ceci est une page de test.
 					$this->unModule = new ModuleRecherche();
 					break;
+				case "Inventaire" :
+					//on appelle l'inventaire
+					$this->unModule = new ModuleInventaire($_GET["codeBarre"]);
 			}
 		}
 		else
@@ -164,6 +168,8 @@ class PageModule extends Page
 		$this->ajouteLigne("<li><a href=\"" . MODULE_PROFIL ."\">Mon profil</a></li>");
 		$this->ajouteLigne("<li><a href=\"" . MODULE_GESTION_JEUX . "\">Gestion des jeux</a></li>");
 		$this->ajouteLigne("<li><a href=\"" . MODULE_RECHERCHE . "\">Recherche</a></li>");
+		$this->ajouteLigne("<li><a href=\"" . MODULE_INVENTAIRE. "\">Inventaire</a></li>");
+		
 		//$this->ajouteLigne("<li><a href=\"" . MODULE_AJOUT_JEUX . "\">Ajouter Jeux</a></li>");
 		//$this->ajouteLigne("<li><a href=\"" . MODULE_AJOUT_VERSIONS . "\">Ajouter Versions</a></li>");
 		//$this->ajouteLigne("<li><a href=\"" . MODULE_AJOUT_EXEMPLAIRES . "\">Ajouter Exemplaires</a></li>");

@@ -1231,6 +1231,22 @@ class AccesAuxDonneesDev
 	}
 	
 	/**
+	* Fonction de récupération de l'id d'un exemplaire, à partir de son code barre
+	* Entrée : code barre de l'exemplaire dont on souhaite récupérer l'id
+	* Sortie : id de l'exemplaire
+	*/
+	public function recupIdExemplaire($codeBarre)
+	{
+
+		$requete = "SELECT " . ID_EXEMPLAIRE ." FROM " . TABLE_EXEMPLAIRE . " WHERE " . CODE_BARRE . " = '" . $codeBarre. "';";
+		$resultat = $this->requeteSelect($requete);
+			
+		//	var_dump($resultat[0][ID_EXEMPLAIRE]); 
+		return $resultat[0][ID_EXEMPLAIRE];
+
+	}
+	
+	/**
 	* Fonction qui met à jour les informations d'un jeu
 	* Entrée : id du jeu à mettre à jour
 	* Entrée : nouvelle description du jeu
